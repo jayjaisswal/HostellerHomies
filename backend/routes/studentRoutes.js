@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const { check } = require('express-validator');
-const { registerStudent, getStudent, getAllStudents, updateStudent, deleteStudent, csvStudent } = require('../controllers/studentController');
-
+const { registerStudent, getStudent, getAllStudents, updateStudent, deleteStudent, csvStudent,getStudentsById } = require('../controllers/studentController');
 
 // @route  POST api/student/register-student
 // @desc   Register student
 // @access Public
-router.post('/register-student', [
+router.post('/register-student', 
+    [
     check('name', 'Name is required').not().isEmpty(),
     check('urn', 'urn of at least 6 digit is required').isLength(7),
     check('room_no', 'Room number is required').isLength(1),
@@ -22,7 +22,8 @@ router.post('/register-student', [
     check('uidai', 'Enter valid uidai').isLength(12),
     check('hostel', 'Hostel is required').not().isEmpty(),
     check('password', 'Please enter a password with 8 or more characters').isLength({ min: 8 }),
-], registerStudent);
+], 
+registerStudent);
 
 // @route  POST api/student/get-student
 // @desc   Get student by urn 
@@ -39,10 +40,14 @@ router.post('/get-all-students',[
 ],
  getAllStudents);
 
+router.get('/getStudentsById/:id', [
+    check('id', 'ID is required').not().isEmpty(),
+], getStudentsById);
+
 // @route  POST api/student/update-student
 // @desc   Update student
 // @access Public
-router.post('/update-student', [
+router.put('/update-student/:id', [
     check('urn', 'urn is required').not().isEmpty(),
     check('room_no', 'Room number is required').not().isEmpty(),
     check('batch', 'Batch is required').not().isEmpty(),

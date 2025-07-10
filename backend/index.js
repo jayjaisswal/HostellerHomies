@@ -6,9 +6,11 @@ const app = express()
 const port = 3000
 
 connectDB();
-
-app.use(cors());
-
+app.use(cors({
+  origin: ['https://hostellerhomiess.netlify.app', 'http://localhost:5173','https://hosteller-homies-3jwk.vercel.app', 'https://hostellers-olive.vercel.app'],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true,
+}));
 app.use(express.json({ extended: false }));
 
 app.use('/api/auth', require('./routes/authRoutes'));
@@ -22,6 +24,7 @@ app.use('/api/attendance', require('./routes/attendanceRoutes'));
 app.use('/api/suggestion', require('./routes/suggestionRoutes'));
 app.use("/api/Event",require('./routes/EventFundRoutes.js'));
 app.use("/api/guard",require('./routes/securityGuards.js'));
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

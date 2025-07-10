@@ -7,10 +7,10 @@ const { Complaint } = require('../models');
 // @access  Public
 exports.registerComplaint = async (req, res) => {
     let success = false;
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array(), success });
-    }
+    // const errors = validationResult(req);
+    // if (!errors.isEmpty()) {
+    //     return res.status(400).json({ errors: errors.array(), success });
+    // }
     const { student, hostel, type, title, description } = req.body;
     try {
         const newComplaint = new Complaint({
@@ -40,11 +40,11 @@ exports.getbyhostel = async (req, res) => {
     }
     const { hostel } = req.body;
     try {
-        const complaints = await Complaint.find({ hostel }).populate('student', ['name', 'room_no']);
+        const complaints = await Complaint.find({ hostel }).populate('student',['name', 'room_no']).lean();
         success = true;
+        console.log(complaints);
         res.json({ success, complaints });
-    }
-    catch (err) {
+    } catch (err) {
         console.error(err.message);
         res.status(500).send('Server error');
     }
@@ -60,6 +60,9 @@ exports.getbystudent = async (req, res) => {
         return res.status(400).json({ errors: errors.array(), success });
     }
     const { student } = req.body;
+    if (!student) {
+        return res.status(400).json({ errors: [{ msg: 'Student id is required' }], success });
+    }
     try {
         const complaints = await Complaint.find({ student });
         success = true;
@@ -84,6 +87,7 @@ exports.resolve = async (req, res) => {
     try {
         const complaint = await Complaint.findById(id);
         complaint.status = "solved";
+        complaint.resolvedAt = new Date();
         await complaint.save();
         success = true;
         res.json({ success });
