@@ -81,12 +81,6 @@ A smart hostel and mess management system designed to streamline student and adm
 
 ---
 
-## 📦 Project Structure
-
-
-<pre> ## 📁 Project Structure ``` Homies/ │ ├── backend/ # Node.js + Express + MongoDB backend │ ├── models/ # Mongoose models │ ├── routes/ # API routes │ ├── controllers/ # Request handlers │ ├── .env # Environment variables (not committed) │ └── index.js # Backend entry point │ ├── client/ # React frontend │ ├── public/ # Static files │ ├── src/ # React source code │ ├── .env # Local environment variables │ └── .env.production # Production environment config ``` </pre>
-
----
 
 ## 📌 Future Scope
 
