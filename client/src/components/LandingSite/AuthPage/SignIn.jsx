@@ -534,7 +534,7 @@ export default function SignIn() {
             isAdmin: result.data.user.isAdmin,
             token: result.data.token,
           }),
-          includecredentials: "include",
+          credentials: "include",
         });
 
         const studentResult = await studentRes.json();

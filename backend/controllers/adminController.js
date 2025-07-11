@@ -64,7 +64,8 @@ const registerAdmin = async (req, res) => {
       success = true;
       res.json({ success, token, admin });
     } catch (error) {
-      res.status(500).send("Server error");
+      res.status(500).json({ success: false, msg: "Server error" }); // ✅ Proper JSON
+
     }
   } catch (err) {
     res.status(500).json({ success, errors: [{ msg: "Server error" }] });
@@ -103,7 +104,8 @@ const updateAdmin = async (req, res) => {
       success = true;
       res.json({ success, admin });
     } catch (error) {
-      res.status(500).send("Server error");
+      res.status(500).json({ success: false, msg: "Server error" }); // ✅ Proper JSON
+
     }
   } catch (err) {
     res.status(500).json({ success, errors: [{ msg: "Server error" }] });
@@ -132,7 +134,8 @@ const getHostel = async (req, res) => {
     success = true;
     res.json({ success, hostel });
   } catch (error) {
-    res.status(500).send("Server error");
+    res.status(500).json({ success: false, msg: "Server error" });  // ✅ Sends valid JSON
+
   }
 };
 
@@ -211,7 +214,8 @@ const deleteAdmin = async (req, res) => {
     success = true;
     res.json({ success, msg: "Admin deleted" });
   } catch (error) {
-    res.status(500).send("Server error");
+   res.status(500).json({ success: false, msg: "Server error" });  // ✅ Sends valid JSON
+
   }
 };
 

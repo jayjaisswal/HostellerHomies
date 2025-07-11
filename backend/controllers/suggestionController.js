@@ -46,7 +46,8 @@ exports.getbyhostel = async (req, res) => {
     res.json({ success, suggestions });
   } catch (err) {
     console.error(err.message);
-    res.status(500).send("Server error");
+    res.status(500).json({ success: false, msg: "Server error" });  // ✅ Sends valid JSON
+
   }
 };
 
@@ -68,7 +69,8 @@ exports.getbystudent = async (req, res) => {
     res.json({ success, suggestions });
   } catch (err) {
     console.error(err.message);
-    res.status(500).send("Server error");
+    res.status(500).json({ success: false, msg: "Server error" });  // ✅ Sends valid JSON
+
   }
 };
 
@@ -84,6 +86,7 @@ exports.updateSuggestion = async (req, res) => {
     res.json({ success, msg: "Suggestion updated successfully" });
   } catch (err) {
     console.error(err.message);
-    res.status(500).send("Server error");
+    res.status(500).json({ success: false, msg: "Server error" });  // ✅ Sends valid JSON
+
   }
 };

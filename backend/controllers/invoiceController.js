@@ -250,7 +250,8 @@ exports.generateInvoices = async (req, res) => {
     return res.status(200).json({ success, count });
   } catch (err) {
     console.error("Error:", err.message);
-    return res.status(500).send("Server error");
+    return res.status(500).json({ success: false, msg: "Server error" });  // ✅ Sends valid JSON
+
   }
 };
 
@@ -274,7 +275,8 @@ exports.getInvoicesbyid = async (req, res) => {
     res.status(200).json({ success, invoices });
   } catch (err) {
     console.error(err.message);
-    res.status(500).send("Server error");
+    res.status(500).json({ success: false, msg: "Server error" });  // ✅ Sends valid JSON
+
   }
 };
 
@@ -294,7 +296,8 @@ exports.getInvoices = async (req, res) => {
     res.status(200).json({ success, invoices });
   } catch (err) {
     console.error(err.message);
-    res.status(500).send("Server error");
+    res.status(500).json({ success: false, msg: "Server error" });  // ✅ Sends valid JSON
+
   }
 };
 
@@ -322,6 +325,7 @@ exports.updateInvoice = async (req, res) => {
     res.status(200).json({ success, invoice });
   } catch (err) {
     console.error(err.message);
-    res.status(500).send("Server error");
+    res.status(500).json({ success: false, msg: "Server error" });  // ✅ Sends valid JSON
+
   }
 };
