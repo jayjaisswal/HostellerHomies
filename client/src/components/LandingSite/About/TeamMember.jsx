@@ -55,7 +55,7 @@ function TeamCard({ member }) {
 
           <div className="flex space-x-2">
             <button className="p-2 text-gray-600 hover:text-[#4f46e5] transition-colors">
-            <a href="mailto:raushankumar23082004@gmail.com">
+            <a href="mailto:kumarprince13833@gmail.com">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"

@@ -7,7 +7,7 @@ const port = 3000
 
 connectDB();
 app.use(cors({
-  origin: ['https://hostellerhomiess.netlify.app', 'http://localhost:5173','https://hosteller-homies-3jwk.vercel.app', 'https://hostellers-olive.vercel.app'],
+  origin: ['https://hosteller-homies-two.vercel.app', 'http://localhost:5173'],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
 }));

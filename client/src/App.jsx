@@ -10,7 +10,7 @@ import RequestAcc from "./components/LandingSite/AuthPage/Request";
 import AdminSignIn from "./components/LandingSite/AuthPage/AdminSignIn";
 import Index from "./components/Dashboards/StudentDashboard/Index";
 import Home from "./components/Dashboards/StudentDashboard/Home";
-import Mess from "./components/Dashboards/StudentDashboard/Mess";
+import Mess from "./components/Dashboards/StudentDashboard/Mess"; 
 import Attendance from "./components/Dashboards/StudentDashboard/Attendance";
 import Invoices from "./components/Dashboards/StudentDashboard/Invoices";
 import Suggestions from "./components/Dashboards/StudentDashboard/Suggestions";
