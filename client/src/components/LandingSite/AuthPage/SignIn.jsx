@@ -513,12 +513,13 @@ export default function SignIn() {
 
     try {
       const response = await fetch(`${mainUri}/api/auth/login`, {
-        method: "POST",
+        method: "POST", 
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           email: formState.email,
           password: formState.password,
         }),
+        credentials: "include",
       });
 
       const result = await response.json();
@@ -533,6 +534,7 @@ export default function SignIn() {
             isAdmin: result.data.user.isAdmin,
             token: result.data.token,
           }),
+          includecredentials: "include",
         });
 
         const studentResult = await studentRes.json();
