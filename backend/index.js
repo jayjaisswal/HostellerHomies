@@ -7,19 +7,19 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 connectDB();
-// app.use(
-  // cors({
-  //   origin: [
-  //     "https://hosteller-homies-two.vercel.app",
-  //     "http://localhost:5173",
-  //   ],
-  //   methods: ["GET", "POST", "PUT", "DELETE"],
-  //   credentials: true,
-  // })
-// );
-app.use(cors({
-  origin: "*", // ❗ ONLY for testing, not production
-}));
+app.use(
+  cors({
+    origin: [
+      "https://hosteller-homies-two.vercel.app",
+      "http://localhost:5173",
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+// app.use(cors({
+//   origin: "*", // ❗ ONLY for testing, not production
+// }));
 app.use(express.json({ extended: false }));
 
 app.use("/api/auth", require("./routes/authRoutes"));
