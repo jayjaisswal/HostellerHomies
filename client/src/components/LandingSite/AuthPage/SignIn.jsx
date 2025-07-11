@@ -534,6 +534,7 @@ export default function SignIn() {
             isAdmin: result.data.user.isAdmin,
             token: result.data.token,
           }),
+          
           credentials: "include",
         });
 
