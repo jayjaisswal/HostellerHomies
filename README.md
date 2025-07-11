@@ -1,90 +1,138 @@
-# HostellerHomies - Backend
+# 🏠 Hosteller Homies
 
-Welcome to **HostellerHomies**, your go-to solution for seamless hostel life! This repository powers the backend of the **HostellerHomies** app, handling all the crucial features that make hostel life smooth, including **room management**, **mess services**, **notifications**, and more.
+A smart hostel and mess management system designed to streamline student and admin workflows within hostels. Built using the **MERN stack** and deployed on **Render** (backend) and **Vercel** (frontend).
 
-🚀 **Project Link**: [HostellerHomies](https://github.com/CoderRaushan/HostellerHomies)
+> 🚨 **Note:** Since the backend is hosted on Render, it may take a few moments to respond.
 
-## 🔥 Features
+---
 
-- **User Management**: Secure registration, login, and user profile management.
-- **Room Booking**: Simple room allocation and management for hostellers.
-- **Mess Services**: Handle meal plans, menus, and meal bookings effortlessly.
-- **Notifications**: Stay updated with the latest hostel events and announcements.
-- **Admin Dashboard**: Manage users, rooms, mess services, and more from a single place.
-- **Robust API**: A clean, easy-to-use RESTful API for integration.
+## 🔗 Live Website
 
-## 🚀 Technologies Used
+🌐 [https://hosteller-homies-two.vercel.app](https://hosteller-homies-two.vercel.app)
 
-- **Node.js**: Backend runtime for building fast and scalable network applications.
-- **Express.js**: Framework for building RESTful APIs.
-- **MongoDB**: NoSQL database for storing hostel-related data.
-- **JWT Authentication**: Secure token-based authentication.
-- **Mongoose**: ODM to interact with MongoDB and simplify database operations.
+---
 
-## ⚡️ Quick Start
+## 🔐 Credentials
 
-To get started with the project, follow these steps:
+### 👨‍🏫 Admin Login
+- **Email:** `admin@gmail.com`
+- **Password:** `123456789`
 
-1. **Clone the repository**:
+### 👨‍🎓 Student Login
+- **Email:** `student@gmail.com`
+- **Password:** `123456789`
 
-   ```bash
-   git clone https://github.com/CoderRaushan/HostellerHomies.git
-   cd HostellerHomies
-   ```
+> ✨ Students cannot sign up themselves. Their accounts are created by the mess manager/admin for **security** reasons. Signup and Google login are part of the **future scope**.
 
-2. **Install dependencies**:
+---
 
-   ```bash
-   npm install
-   ```
+## 🧠 Features
 
-3. **Create a `.env` file** for environment variables:
+### ✅ Admin Dashboard
+- Home
+- Register Student
+- Attendance
+- Mess
+- Complaints
+- Suggestions
+- Event Request
+- All Students
+- Security Guard
 
-   - Add your MongoDB URI and JWT secret:
-     ```env
-     DB_URI=your_mongo_db_uri
-     JWT_SECRET=your_jwt_secret
-     ```
+### 👤 Student Dashboard
+- Home
+- Mess Off
+- Attendance
+- Event Request
+- Complaints
+- Suggestions
+- Security Guard
 
-4. **Run the server**:
-   ```bash
-   npm start
-   ```
+---
 
-Your server should now be running on `http://localhost:5000`.
+## 🖼️ Screenshots
 
-## 🌍 API Endpoints
+### 🔑 Login Page
 
-### Auth
+![Login Page](./client/src/assets/login.png) <!-- Replace with your actual image path -->
 
-- **POST /register**: Register a new user.
-- **POST /login**: Login and get a JWT token for access.
+### 🛠 Admin Dashboard
 
-### Room Management
+![Admin Dashboard](./client/src/assets/admin-dashboard.png) <!-- Replace with your actual image path -->
 
-- **GET /rooms**: Get a list of available rooms.
-- **POST /room/book**: Book a room.
+### 🛠 Student Dashboard
 
-### Mess Services
+![Student Dashboard](./client/src/assets/student-dahsboard.png) <!-- Replace with your actual image path -->
 
-- **GET /mess/menu**: View the daily mess menu.
-- **POST /mess/meal**: Book a meal for the day.
+### 🛠 Meet Team
 
-For complete API documentation, refer to our [API Docs](#).
+![Team ](./client/src/assets/Team.png) <!-- Replace with your actual image path -->
 
-## 🤝 Contributing
+---
 
-We love contributions! Here’s how you can get involved:
+## 🚀 Tech Stack
 
-1. Fork the repo.
-2. Create a new branch (`git checkout -b feature-name`).
-3. Commit your changes (`git commit -am 'Add new feature'`).
-4. Push to the branch (`git push origin feature-name`).
-5. Open a Pull Request.
+- **Frontend:** React + Vite + Tailwind CSS
+- **Backend:** Node.js + Express
+- **Database:** MongoDB (MongoDB Atlas)
+- **Hosting:** 
+  - Frontend: Vercel
+  - Backend: Render
 
-## 🌟 Authors
+---
 
-- **Raushan**: [GitHub Profile](https://github.com/CoderRaushan)
-- **Jay**: [GitHub Profile](https://github.com/jayjaisswal)
-- **Ankush**: [GitHub Profile](https://github.com/ankushkumar2122)
-- **Utkarsh**: [GitHub Profile](https://github.com/u4utkarsh)
+## 📦 Project Structure
+
+
+Homies/
+│
+├── backend/ # Node.js + Express + MongoDB backend
+│ ├── models/
+│ ├── routes/
+│ ├── controllers/
+│ ├── .env # Environment config (not committed)
+│ └── index.js
+│
+├── client/ # React frontend
+│ ├── public/
+│ ├── src/
+│ ├── .env # Local env
+│ └── .env.production
+
+
+---
+
+## 📌 Future Scope
+
+- Google Authentication
+- Student Signup (with approval)
+- QR Code Integration
+- Chat with Security/Support
+- Improved Analytics and Charts
+
+---
+This is a **team project** built by 4 members as part of our minor project.  
+For deployment and testing purposes, it is **hosted individually by Jay** to avoid potential errors caused by uncontrolled parallel updates.  
+> ✅ This ensures smooth operation and stability for demo/testing.
+
+
+## 👥 Authors
+
+| Name      | GitHub Profile                                    |
+|-----------|----------------------------------------------------|
+| Raushan   | [@CoderRaushan](https://github.com/CoderRaushan)  |
+| Jay       | [@jayjaisswal](https://github.com/jayjaisswal)    |
+| Ankush    | [@ankushkumar2122](https://github.com/ankushkumar2122) |
+| Utkarsh   | [@u4utkarsh](https://github.com/u4utkarsh)         |
+
+
+**Team GitHub Repo**: [https://github.com/CoderRaushan/HostellerHomies](https://github.com/CoderRaushan/HostellerHomies)
+
+> This is a **minor project**, but will be continued as a **major project** in the future.
+
+---
+
+## 📄 License
+
+This project is licensed for academic and educational purposes.
+
