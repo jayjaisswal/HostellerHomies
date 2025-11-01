@@ -33,6 +33,7 @@ app.use("/api/attendance", require("./routes/attendanceRoutes"));
 app.use("/api/suggestion", require("./routes/suggestionRoutes"));
 app.use("/api/Event", require("./routes/EventFundRoutes.js"));
 app.use('/api/rooms', require('./routes/roomRoutes'));
+app.use('/api/guard', require('./routes/securityGuards'));
 
 
 app.listen(PORT, () => {
