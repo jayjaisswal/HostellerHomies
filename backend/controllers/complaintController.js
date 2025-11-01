@@ -6,12 +6,27 @@ const { Complaint } = require("../models");
 // @access  Public
 exports.registerComplaint = async (req, res) => {
   let success = false;
-  // const errors = validationResult(req);
-  // if (!errors.isEmpty()) {
-  //     return res.status(400).json({ errors: errors.array(), success });
-  // }
   const { student, hostel, type, title, description } = req.body;
+
   try {
+    // 🔍 Check recent complaints by same student for same type
+    const oneDayAgo = new Date();
+    oneDayAgo.setDate(oneDayAgo.getDate() - 1);
+
+    const recentComplaint = await Complaint.findOne({
+      student,
+      type,
+      date: { $gte: oneDayAgo },  // Complaints in the last 24h
+    });
+
+    if (recentComplaint) {
+      return res.status(429).json({
+        success,
+        msg: `You have already raised a "${type}" complaint in the last 24 hours.`,
+      });
+    }
+
+    // ✅ Create new complaint
     const newComplaint = new Complaint({
       student,
       hostel,
@@ -19,15 +34,16 @@ exports.registerComplaint = async (req, res) => {
       title,
       description,
     });
+
     await newComplaint.save();
     success = true;
     res.json({ success, msg: "Complaint registered successfully" });
   } catch (err) {
     console.error(err.message);
-    res.status(500).json({ success: false, msg: "Server error" });  // ✅ Sends valid JSON
-
+    res.status(500).json({ success: false, msg: "Server error" });
   }
 };
+
 
 // @route   GET api/complaint
 // @desc    Get all complaints by hostel id
@@ -41,7 +57,7 @@ exports.getbyhostel = async (req, res) => {
   const { hostel } = req.body;
   try {
     const complaints = await Complaint.find({ hostel })
-      .populate("student", ["name", "room_no"])
+      .populate("student", ["name", "room_no", "urn"])
       .lean();
     success = true;
     console.log(complaints);

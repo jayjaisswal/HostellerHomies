@@ -24,4 +24,4 @@ const HostelSchema = new Schema({
     }
 })
 
-module.exports = Hostel = mongoose.model('hostel',HostelSchema);
+module.exports =  mongoose.model('Hostel',HostelSchema);

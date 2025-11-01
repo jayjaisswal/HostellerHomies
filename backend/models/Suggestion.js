@@ -28,4 +28,4 @@ const SuggestionSchema = new Schema({
     }
 })
 
-module.exports = Suggestion = mongoose.model('suggestion',SuggestionSchema);
+module.exports =  mongoose.model('Suggestion',SuggestionSchema);

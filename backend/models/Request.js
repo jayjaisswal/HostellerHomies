@@ -13,4 +13,4 @@ const RequestSchema = new Schema({
     }
 });
 
-module.exports = Request = mongoose.model('request', RequestSchema);
+module.exports =  mongoose.model('Request', RequestSchema);
