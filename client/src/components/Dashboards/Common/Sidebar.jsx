@@ -26,6 +26,7 @@ function Sidebar({ links }) {
   const logout = () => {
     localStorage.removeItem("student");
     localStorage.removeItem("token");
+    
     navigate("/");
   };
 

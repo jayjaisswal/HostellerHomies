@@ -34,6 +34,7 @@ import EventRequestVerification from "./components/Dashboards/AdminDashboard/Eve
 import SecurityGuardDetails from "./components/Dashboards/StudentDashboard/SecurityGuardDetails";
 import SecurityGuardSelector from "./components/Dashboards/AdminDashboard/SecurityGuardSelector";
 import StudentEditForm from "./components/Dashboards/AdminDashboard/StudentEditForm";
+import Room from "./components/Dashboards/Common/Room";
 
 
 function App() {
@@ -62,6 +63,8 @@ function App() {
           <Route path="invoices" element={<Invoices/>} />
           <Route path="settings" element={<Settings/>} />
           <Route path="event" element={<Event />} />
+          <Route path="rooms" element={<Room />} />
+          
           <Route path="security-guard-detail" element={<SecurityGuardDetails />} />
         </Route>
         <Route path="/admin-dashboard" element={<AdminIndex />}>
@@ -77,6 +80,7 @@ function App() {
           <Route path="event-request-verification" element={<EventRequestVerification />} />
           <Route path="security-guard-selector" element={<SecurityGuardSelector />} />
           <Route path="student/:id" element={<StudentEditForm />} />
+          <Route path="rooms" element={<Room />} />
         </Route>
       </Routes>
     </>
